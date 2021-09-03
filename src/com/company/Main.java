@@ -1,7 +1,8 @@
 package com.company;
 
 
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalTime;
 
 
@@ -24,7 +25,7 @@ public class Main {
 
         System.out.println("Number of seconds left today is; " + (Total_Seconds_In_A_Day - seconds_In_Total));
 
-        System.out.println(new DecimalFormat("#.##").format  (seconds_In_Total / Total_Seconds_In_A_Day * 100) + "% of the day has passed" );
+        System.out.println(new BigDecimal(seconds_In_Total / Total_Seconds_In_A_Day * 100).setScale(2, RoundingMode.HALF_UP) + "% of the day has passed" );
 
     }
 }
